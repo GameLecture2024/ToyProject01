@@ -19,11 +19,12 @@ public class PlayerManager : MonoBehaviour, ISaveManager
     [Header("Player Manager Script")]
     [HideInInspector] public PlayerAnimationManager playerAnimationManager;
     [HideInInspector] public PlayerMovementManager playerMovementManager;
-
+    [HideInInspector] public PlayerAudioManager playerAudioManager;
     private void Awake()
     {
         playerAnimationManager = GetComponent<PlayerAnimationManager>();
         playerMovementManager = GetComponent<PlayerMovementManager>();
+        playerAudioManager = GetComponent<PlayerAudioManager>();
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
     }
