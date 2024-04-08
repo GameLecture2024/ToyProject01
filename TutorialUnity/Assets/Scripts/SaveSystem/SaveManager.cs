@@ -16,6 +16,7 @@ public class SaveManager : MonoBehaviour
 
     [Header("저장할 데이터 변수 정보")]
     public string fileName;
+    public string originName;
     public SaveGameSlot nowSlot;         // 현재 선택된 슬롯을 저장하는 변수
 
     private void Awake()         // ctrl + M + M 
@@ -30,6 +31,8 @@ public class SaveManager : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);   // 씬이 변경되어도 파괴되지 않도록 해주는 설정
+
+        originName = fileName;           // 시작할 때 저장데이터 이름의 원본을 기억해둔다.
     }
 
     public void NewGame()
@@ -53,6 +56,7 @@ public class SaveManager : MonoBehaviour
     {
         nowSlot = slot;
 
+        fileName = originName;
         fileName += slot.ToString() + ".txt";
     }
 

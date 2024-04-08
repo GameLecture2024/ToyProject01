@@ -41,7 +41,9 @@ public class SaveSlot : MonoBehaviour
 
     private void LoadSavedSlotData()   // Slot의 데이터 정보를 읽고 출력한다.
     {
-        string mySlotName = SaveManager.Instance.fileName + saveGameSlot.ToString() + ".txt";
+        if (!SaveManager.Instance) return;
+
+        string mySlotName = SaveManager.Instance.originName + saveGameSlot.ToString() + ".txt";
         dataHandler = new DataHandler(Application.persistentDataPath, mySlotName);        // SaveGameSlot 열거형 값에 따라 저장되는 파일 이름이 변경된다.
 
         if (dataHandler.CheckFileExists(Application.persistentDataPath, mySlotName))

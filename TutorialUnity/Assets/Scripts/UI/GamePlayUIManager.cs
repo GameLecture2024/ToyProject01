@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GamePlayUIManager : MonoBehaviour
@@ -27,9 +28,14 @@ public class GamePlayUIManager : MonoBehaviour
         UIGameObject.SetActive(isOpen);
     }
 
+    public void CloseUIMenu()
+    {
+        UIGameObject.SetActive(false);
+    }
+
     public void ReturnToTitleScene()
     {
-
+        SceneManager.LoadScene("TitleScene");
     }
 
     public void GameQuit()
